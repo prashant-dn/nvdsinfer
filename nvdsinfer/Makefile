@@ -8,7 +8,7 @@
 # license agreement from NVIDIA Corporation is strictly prohibited.
 #################################################################################
 
-CUDA_VER=11.7
+CUDA_VER?=
 ifeq ($(CUDA_VER),)
   $(error "CUDA_VER is not set")
 endif
@@ -25,7 +25,7 @@ SRCS:= nvdsinfer_context_impl.cpp  nvdsinfer_context_impl_capi.cpp \
 INCS:= $(wildcard *.h)
 LIB:=libnvds_infer.so
 
-NVDS_VERSION:=6.1
+NVDS_VERSION:=6.0
 
 LIB_INSTALL_DIR?=/opt/nvidia/deepstream/deepstream-$(NVDS_VERSION)/lib/
 
