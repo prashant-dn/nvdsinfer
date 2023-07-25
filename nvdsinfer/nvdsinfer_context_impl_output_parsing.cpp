@@ -520,17 +520,17 @@ DetectPostprocessor::fillUnclusteredOutput(NvDsInferDetectionOutput& output)
             object.confidence = obj.detectionConfidence;
             if(obj.classId < m_Labels.size() && m_Labels[obj.classId].size() > 0){
                 auto classLabel = m_Labels[obj.classId][0];
-                std::cout<<"\n Assigned class label: "<< classLabel;
+                //std::cout<<"\n Assigned class label: "<< classLabel;
                 // check for rotated bbox coordinates
                 std::stringstream rotatedCoords;
                 rotatedCoords<< classLabel;
-                std::cout<<"\n Rotated bbox points: "<<obj.rotatedBboxPoints.size();
+                //std::cout<<"\n Rotated bbox points: "<<obj.rotatedBboxPoints.size();
                 for(int index=0; index < obj.rotatedBboxPoints.size(); index++){
                     if(index == 0)
                         rotatedCoords<<"|";
                     auto pointXY = obj.rotatedBboxPoints[index];
                     rotatedCoords<<std::to_string(pointXY.x)<<","<<std::to_string(pointXY.y);
-                    std::cout<<"\n Point index:"<< index<<"\t"<<std::to_string(pointXY.x)<<","<<std::to_string(pointXY.y);
+                    //std::cout<<"\n Point index:"<< index<<"\t"<<std::to_string(pointXY.x)<<","<<std::to_string(pointXY.y);
                     if(index != obj.rotatedBboxPoints.size()-1){
                         rotatedCoords<<",";
                     }
